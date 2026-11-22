@@ -1,18 +1,21 @@
 # SEEKERTV
 
-A spare Android phone as an office activity logger and security camera.
-Pilot device: Solana Seeker, Byeongjeom office.
+쓰지 않는 안드로이드 폰을 벽에 붙여 근무 기록기 겸 방범 카메라로 쓰는 앱입니다. 지금은 시범 단계이고, 이 저장소에는 설치 파일만 있습니다.
 
-- Check in when you arrive: a photo is taken at once, then one every 30 minutes.
-- Check out when you leave: the session closes and, later, security recording starts.
-- Originals stay on the phone and are copied to the owner's own Google Drive.
+## 설치와 업데이트
 
-Status: pilot, build A (device verification). See `docs/` for the specification.
+1. 설치할 폰에서 아래 링크를 엽니다.
+   **<https://github.com/Birchnut/SEEKERTV/raw/main/SEEKERTV.apk>**
+2. 내려받은 `SEEKERTV.apk`를 열어 설치합니다. 처음 한 번은 브라우저에 "이 출처의 앱 설치 허용"을 켜야 합니다.
+3. 업데이트도 같은 링크입니다. **앱을 지우지 말고 그대로 덮어써 설치하세요.** 앱을 지우면 폰 안의 사진과 기록이 함께 지워집니다.
 
-## Build
+지금 올라와 있는 버전과 파일 지문은 [`VERSION.txt`](VERSION.txt)에 있습니다.
 
-Builds run on GitHub Actions (`.github/workflows/build.yml`). Each run publishes
-its results to the `ci-out` branch: a short report, the tail of the build log,
-unit test results and the unsigned release APK. The APK is signed afterwards
-with the pilot key, which is never stored in this repository or on the build
-server.
+## 이 버전(빌드 A)이 하는 일
+
+- **체크인**을 누르면 바로 한 장을 찍고, 그 뒤 30분마다 한 장씩 전면 카메라로 찍습니다. 화면을 꺼도 계속됩니다.
+- **체크아웃**을 누르면 멈춥니다.
+- **3분 기기 테스트**로 이 폰이 화면이 꺼진 상태에서도 제시간에 찍는지 확인합니다.
+- 사진과 기록은 폰 안에만 저장됩니다. 로그인도, 인터넷 전송도 없습니다.
+
+요청하는 권한은 카메라(필수), 위치(선택), 알림(선택)입니다. 마이크 권한은 요청하지 않습니다.
